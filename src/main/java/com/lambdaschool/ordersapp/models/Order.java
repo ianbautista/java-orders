@@ -15,63 +15,78 @@ public class Order
     @Column(nullable = false)
     private double ordamount;
     private double advanceamount;
-    private String orderdescription;
 
     // foreign key
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-    private Customer customer;
+    private Customer custcode;
+
+    private String orderdescription;
 
     // default constructor
     public Order()
     {
     }
+
     //constructor
-    public Order(double ordamount, double advanceamount, String orderdescription, Customer customer) {
+    //(ordnum, ordamount, advanceamount, custcode, orderdescription)
+
+
+    public Order(long ordnum, double ordamount, double advanceamount, Customer custcode, String orderdescription)
+    {
+        this.ordnum = ordnum;
         this.ordamount = ordamount;
         this.advanceamount = advanceamount;
+        this.custcode = custcode;
         this.orderdescription = orderdescription;
-        this.customer = customer;
     }
 
     //getters and setters
-    public long getOrdnum() {
+    public long getOrdnum()
+    {
         return ordnum;
     }
 
-    public void setOrdnum(long ordnum) {
+    public void setOrdnum(long ordnum)
+    {
         this.ordnum = ordnum;
     }
 
-    public double getOrdamount() {
+    public double getOrdamount()
+    {
         return ordamount;
     }
 
-    public void setOrdamount(double ordamount) {
+    public void setOrdamount(double ordamount)
+    {
         this.ordamount = ordamount;
     }
 
-    public double getAdvanceamount() {
+    public double getAdvanceamount()
+    {
         return advanceamount;
     }
 
-    public void setAdvanceamount(double advanceamount) {
+    public void setAdvanceamount(double advanceamount)
+    {
         this.advanceamount = advanceamount;
     }
 
-    public String getOrderdescription() {
+    public String getOrderdescription()
+    {
         return orderdescription;
     }
 
-    public void setOrderdescription(String orderdescription) {
+    public void setOrderdescription(String orderdescription)
+    {
         this.orderdescription = orderdescription;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Customer getCustcode() {
+        return custcode;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustcode(Customer custcode) {
+        this.custcode = custcode;
     }
 }
