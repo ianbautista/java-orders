@@ -26,11 +26,13 @@ public class Customer
     private double outstandingamt;
     private String phone;
 
+    // foreign key relationship to Agent
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
     private Agent agentcode;
 
-    @OneToMany(mappedBy = "customers", cascade = CascadeType.ALL, orphanRemoval = true)
+    //relationship to Order
+    @OneToMany(mappedBy = "custcode", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
     //default constructor

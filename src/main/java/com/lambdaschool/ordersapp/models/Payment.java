@@ -16,8 +16,9 @@ public class Payment
     @Column(nullable = false)
     private String type;
 
+    // relationship to Order
     @ManyToMany(mappedBy = "payments")
-    Set<Order> orders = new HashSet<>();
+    private Set<Order> orders = new HashSet<>();
 
     //default constructor
     public Payment()

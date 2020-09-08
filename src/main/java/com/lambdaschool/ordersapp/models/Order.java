@@ -17,13 +17,14 @@ public class Order
     private double ordamount;
     private double advanceamount;
 
-    // foreign key
+    // foreign key relationship to Customer
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
     private Customer custcode;
 
     private String orderdescription;
 
+    // relationship to Payment
     @ManyToMany
     @JoinTable(name = "orderspayments", joinColumns = @JoinColumn(name = "ordnum"), inverseJoinColumns = @JoinColumn(name = "paymentid"))
     private Set<Payment> payments = new HashSet<>();
