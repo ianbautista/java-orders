@@ -102,5 +102,8 @@ public class Order
         this.payments = payments;
     }
 
-
+    // addPayments from SeedData
+    public void addPayments(Payment pay) {
+        this.getPayments().add(pay);
+    }
 }

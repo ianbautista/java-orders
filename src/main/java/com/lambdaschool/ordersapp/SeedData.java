@@ -1,4 +1,4 @@
-package src.main.java.com.lambdaschool.ordersapp;
+package com.lambdaschool.ordersapp;
 
 //import com.github.javafaker.Faker;
 import com.lambdaschool.ordersapp.models.Agent;

@@ -27,7 +27,7 @@ public class Payment
 
     //constructor
     // (paymentid, type)
-    public Payment(long paymentid, String type) {
+    public Payment(String type) {
         this.paymentid = paymentid;
         this.type = type;
     }
