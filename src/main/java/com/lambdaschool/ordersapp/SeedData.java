@@ -1,6 +1,6 @@
 package com.lambdaschool.ordersapp;
 
-//import com.github.javafaker.Faker;
+import com.github.javafaker.Faker;
 import com.lambdaschool.ordersapp.models.Agent;
 import com.lambdaschool.ordersapp.models.Customer;
 import com.lambdaschool.ordersapp.models.Order;
@@ -14,10 +14,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Random;
-import java.util.Set;
 
 
 @Transactional
@@ -535,7 +533,35 @@ public class SeedData implements CommandLineRunner
 
 
         //STRETCH
+        // (custname, custcity, workingarea, custcountry, grade, openingamt, receiveamt, paymentamt, outstandingamt, phone, agentcode)
+        Faker nameFaker = new Faker(new Locale("en-US"));
 
+        // Customer c06 = new Customer("Stuart",
+        //            "London",
+        //            "London",
+        //            "UK",
+        //            "1",
+        //            6000.00,
+        //            8000.00,
+        //            3000.00,
+        //            11000.00,
+        //            "GFSGERS",
+        //            a03);
+        for (int i = 0; i < 100; i++) {
+            Customer fakecust = new Customer(nameFaker.name().lastName(), nameFaker.address().cityName(), nameFaker.address().city(), nameFaker.address().country(), nameFaker.numerify("1"), nameFaker.number().randomDouble(2, 3, 4), nameFaker.number().randomDouble(2, 3, 4), nameFaker.number().randomDouble(2, 3, 4), nameFaker.number().randomDouble(2, 3, 4), nameFaker.letterify("LKJHFGW"), a03);
 
+            custrepos.save(fakecust);
+            // (ordamount, advanceamount, custcode, orderdescription)
+            for (int o = 0; o < new Random().nextInt(11); o++) {
+                Order newOrder = new Order(
+                        nameFaker.number().randomDouble(2, 3, 4),
+                        nameFaker.number().randomDouble(2, 3, 4),
+                        fakecust, "SOD"
+                        );
+                newOrder.addPayments(pay1);
+                newOrder.addPayments(pay2);
+                ordersrepos.save(newOrder);
+            }
+        }
     }
 }
