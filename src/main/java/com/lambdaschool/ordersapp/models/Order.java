@@ -36,7 +36,7 @@ public class Order
 
     //constructor
     //(ordnum, ordamount, advanceamount, custcode, orderdescription)
-    public Order(long ordnum, double ordamount, double advanceamount, Customer custcode, String orderdescription)
+    public Order(double ordamount, double advanceamount, Customer custcode, String orderdescription)
     {
         this.ordnum = ordnum;
         this.ordamount = ordamount;
@@ -101,4 +101,6 @@ public class Order
     public void setPayments(Set<Payment> payments) {
         this.payments = payments;
     }
+
+    
 }

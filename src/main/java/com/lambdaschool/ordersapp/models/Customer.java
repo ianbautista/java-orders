@@ -41,7 +41,7 @@ public class Customer
 
     //constructor
     // (custcode, custname, custcity, workingarea, custcountry, grade, openingamt, receiveamt, paymentamt, outstandingamt, phone, agentcode)
-    public Customer(long custcode, String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agentcode) {
+    public Customer(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agentcode) {
         this.custcode = custcode;
         this.custname = custname;
         this.custcity = custcity;

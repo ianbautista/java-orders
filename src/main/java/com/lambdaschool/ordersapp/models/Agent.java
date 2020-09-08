@@ -30,7 +30,7 @@ public class Agent
 
     //constructor
     // (agentcode, agentname, workingarea, commission, phone, country)
-    public Agent(long agentcode, String agentname, String workingarea, double commission, String phone, String country)
+    public Agent(String agentname, String workingarea, double commission, String phone, String country)
     {
         this.agentcode = agentcode;
         this.agentname = agentname;
